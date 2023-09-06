@@ -1,10 +1,15 @@
 "use client";
 import { TbPlaylist } from "react-icons/tb";
 import { AiOutlinePlus } from "react-icons/ai";
-
+import { useUser } from "@/hooks/useUser";
+import useAuthModal from "@/hooks/useAuthModal";
 const Library = () => {
+    const { user, subscription } = useUser();
+    const authModal = useAuthModal();
     const onClick = () => {
-        //lidar com upload
+        if (!user) {
+            return authModal.onOpen();
+        }
     }
 
     return (

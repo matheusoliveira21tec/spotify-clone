@@ -14,7 +14,6 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ children, songs }: SidebarProps) => {
-    console.log(songs);
     const pathname = usePathname();
     const routes = useMemo(() => [
         {

@@ -1,32 +1,38 @@
-import Sidebar from '@/components/Sidebar'
-import './globals.css'
-import type { Metadata } from 'next'
 import { Figtree } from 'next/font/google'
-import SupabaseProvider from '@/provider/SupabaseProvider'
+
+import getSongsByUserId from '@/actions/getSongsByUserId'
+import Sidebar from '@/components/Sidebar'
+import ToasterProvider from '@/provider/ToasterProvider'
 import UserProvider from '@/provider/UserProvider'
 import ModalProvider from '@/provider/ModalProvider'
-import ToasterProvider from '@/provider/ToasterProvider'
+import SupabaseProvider from '@/provider/SupabaseProvider'
 
-const figtree = Figtree({ subsets: ['latin'] })
+import './globals.css'
 
-export const metadata: Metadata = {
+const font = Figtree({ subsets: ['latin'] })
+
+export const metadata = {
   title: 'Spotify Clone',
-  description: 'Listen to music!',
+  description: 'Spotify Clone',
 }
 
-export default function RootLayout({
+export const revalidate = 0;
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const userSongs = await getSongsByUserId();
+
   return (
     <html lang="en">
-      <body className={figtree.className}>
-        <ToasterProvider/>
+      <body className={font.className}>
+        <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>
-            <ModalProvider/>
-            <Sidebar>
+            <ModalProvider />
+            <Sidebar songs={userSongs}>
               {children}
             </Sidebar>
           </UserProvider>

@@ -1,6 +1,6 @@
 "use client";
 
-//import useSound from "use-sound";
+import useSound from "use-sound";
 import { useEffect, useState } from "react";
 import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
@@ -60,21 +60,35 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         player.setId(previousSong);
     }
 
-    //const [play, { pause, sound }] = useSound(
-    //    songUrl,
-     //   {
-       //     volume: volume,
-       //     onplay: () => setIsPlaying(true),
-       //     onend: () => {
-        //        setIsPlaying(false);
-        //        onPlayNext();
-        //    },
-         //   onpause: () => setIsPlaying(false),
-         //   format: ['mp3']
-      //  }
-  //  );
+    const [play, { pause, sound }] = useSound(
+        songUrl,
+        {
+            volume: volume,
+            onplay: () => setIsPlaying(true),
+            onend: () => {
+                setIsPlaying(false);
+                onPlayNext();
+            },
+            onpause: () => setIsPlaying(false),
+            format: ['mp3']
+        }
+    );
 
-   
+    useEffect(() => {
+        sound?.play();
+
+        return () => {
+            sound?.unload();
+        }
+    }, [sound]);
+
+    const handlePlay = () => {
+        if (!isPlaying) {
+            play();
+        } else {
+            pause();
+        }
+    }
 
     const toggleMute = () => {
         if (volume === 0) {
@@ -95,7 +109,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
 
             <div className="flex md:hidden col-auto w-full justify-end items-center">
                 <div
-                    onClick={() => {}}
+                    onClick={handlePlay}
                     className="h-10 w-10 flex items-center justify-center rounded-full  bg-white p-1 cursor-pointer">
                     <Icon size={30} className="text-black" />
                 </div>
@@ -107,7 +121,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                     size={30}
                     className=" text-neutral-400 cursor-pointer  hover:text-white transition"/>
                 <div
-                    onClick={()=>{}}
+                    onClick={handlePlay}
                     className="flex items-center justify-center h-10 w-10 rounded-full  bg-white p-1 cursor-pointer">
                     <Icon size={30} className="text-black" />
                 </div>

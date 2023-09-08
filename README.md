@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Clone Completo do Spotify com Next.js 13.4 App Router: React, Tailwind, Supabase, PostgreSQL, Stripe
 
-## Getting Started
+Recursos Principais:
 
-First, run the development server:
+- Upload de músicas
+- Integração com Stripe
+- Design Tailwind para uma UI elegante
+- Animações e efeitos de transição do Tailwind
+- Total responsividade para todos os dispositivos
+- Autenticação de credenciais com Supabase
+- Integração de autenticação do Github
+- Upload de arquivos e imagens usando o storage do Supabase
+- Validação e tratamento de formulários do cliente usando react-hook-form
+- Tratamento de erros do servidor com react-toast
+- Reprodução de áudio de músicas
+- Sistema de favoritos
+- Sistema de playlists / músicas curtidas
+- Componente Avançado de Reprodutor de audio
+- Integração de pagamento recorrente do Stripe
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Este clone do Spotify está totalmente funcional. Você pode realizar o upload das suas músicas, ouvir suas faixas com um reprodutor de vídeo criado usando a biblioteca use-sound e adicionar músicas à sua lista de favoritos, curtindo-as. Para isso, será necessário criar uma conta de usuário, o que pode ser feito utilizando seu e-mail, conta do GitHub ou selecionando a opção de magic link. Todo o sistema de credenciamento e autenticação foi desenvolvido utilizando a plataforma Supabase.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Uma vez que você tenha criado sua conta, você terá a oportunidade de adquirir a assinatura do Spotify Premium. Não se preocupe, não é necessário efetuar qualquer pagamento. Você será redirecionado para uma página de gateway de pagamentos, o Stripe. Lá, você poderá preencher informações fictícias e, assim, concluir a assinatura do Spotify Premium.
